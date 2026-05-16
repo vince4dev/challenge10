@@ -1,0 +1,89 @@
+/* ---=== FONTS ===--- */
+/* roboto-regular - latin */
+@font-face {
+  font-display: swap;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  src: url("../fonts/roboto-v51-latin-regular.woff2") format("woff2");
+}
+/* roboto-700 - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 700;
+  src: url("../fonts/roboto-v51-latin-700.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+/* ---=== VARIABLES ===--- */
+:root {
+  /* colors */
+  --clr-primary-red: hsl(4, 100%, 67%);
+  --clr-neutral-blue-800: hsl(234, 29%, 20%);
+  --clr-neutral-blue-700: hsl(235, 18%, 26%);
+  --clr-neutral-grey: hsl(0, 0%, 58%);
+  --clr-neutral-white: hsl(0, 0%, 100%);
+
+  /* font size */
+  --fs-12: 0.75rem;
+  --fs-16: 1rem;
+  --fs-40: 2.5rem;
+  --fs-56: 3.5rem;
+
+  /* font weight */
+  --fw-bold: 700;
+  --fw-regular: 400;
+}
+
+/* ---=== RESET ===---*/
+*,
+::after,
+::before {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+}
+
+img,
+svg {
+  max-width: 100%;
+  display: block;
+}
+
+h1,
+h2,
+h3 {
+  padding: 0;
+}
+
+button {
+  appearance: none;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Remove list styles on ul, ol elements */
+ul[role="list"],
+ol[role="list"] {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* ---=== BASE ===---*/
+body {
+  font-family: "Roboto", Arial, Helvetica, sans-serif;
+}
+
+/* ---=== MAIN ===---*/

@@ -5,7 +5,7 @@
   font-family: "Roboto";
   font-style: normal;
   font-weight: 400;
-  src: url("../fonts/roboto-v51-latin-regular.woff2") format("woff2");
+  src: url("./assets/fonts/roboto-v51-latin-regular.woff2") format("woff2");
 }
 /* roboto-700 - latin */
 @font-face {
@@ -13,7 +13,7 @@
   font-family: "Roboto";
   font-style: normal;
   font-weight: 700;
-  src: url("../fonts/roboto-v51-latin-700.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+  src: url("./assets/fonts/roboto-v51-latin-700.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
 
 /* ---=== VARIABLES ===--- */
@@ -81,9 +81,185 @@ ol[role="list"] {
   padding: 0;
 }
 
-/* ---=== BASE ===---*/
-body {
-  font-family: "Roboto", Arial, Helvetica, sans-serif;
+/* ---=== COMPONENTS ===--- */
+.btn {
+  font-weight: var(--fw-bold);
+  line-height: 1.5;
+  padding: 1rem;
+  width: 100%;
+  color: var(--clr-neutral-white);
+  background-color: var(--clr-neutral-blue-800);
+  border: 1px solid var(--clr-neutral-grey);
+  border-radius: 0.5rem;
+  margin-block: 1.5rem 2.5rem;
 }
 
-/* ---=== MAIN ===---*/
+/* ---=== BASE ===--- */
+body {
+  background-color: var(--clr-neutral-blue-700);
+  font-family: "Roboto", Arial, Helvetica, sans-serif;
+  font-size: var(--fs-16);
+  font-weight: var(--fw-regular);
+  line-height: 1.5;
+
+  display: grid;
+  place-content: center;
+  min-height: 100vh;
+}
+
+/* ---=== MAIN ===--- */
+.card {
+  background-color: var(--clr-neutral-white);
+  max-height: 100%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2.5rem;
+}
+
+/* IMAGE */
+.card__img img {
+  object-fit: cover;
+  min-width: 100%;
+}
+
+/* TEXT */
+.card__text {
+  margin-inline: 1.5rem;
+
+  display: grid;
+  gap: 2.5rem;
+}
+
+.card__title {
+  font-size: var(--fs-40);
+  font-weight: var(--fw-bold);
+  line-height: 1;
+}
+
+.card__description {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.card__list {
+  display: grid;
+  gap: 0.5rem;
+}
+.card__list li {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+}
+
+/* FORMULAIRE */
+.card__form-email label {
+  display: block;
+  font-size: var(--fs-12);
+  font-weight: var(--fw-bold);
+  margin-bottom: 0.5rem;
+}
+.card__form-email input {
+  display: block;
+  width: 100%;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  border: 1px solid var(--clr-neutral-grey);
+  line-height: 1.5;
+}
+
+/* .card__form-btn {
+  font-weight: var(--fw-bold);
+  line-height: 1.5;
+  padding: 1rem;
+  width: 100%;
+  color: var(--clr-neutral-white);
+  background-color: var(--clr-neutral-blue-800);
+  border: 1px solid var(--clr-neutral-grey);
+  border-radius: 0.5rem;
+  margin-block: 1.5rem 2.5rem;
+} */
+
+/* ---=== SUCCESS MESSAGE ===--- */
+.card__success {
+  /* display: none; */
+  position: absolute;
+  background-color: var(--clr-neutral-white);
+  border-radius: 2.25rem;
+  width: 31.5rem;
+  height: 32.5rem;
+  padding: 3rem 4rem;
+
+  display: grid;
+  gap: 2rem;
+}
+
+.card__success h1 {
+  font-size: var(--fs-56);
+  font-weight: var(--fw-bold);
+  line-height: 1;
+}
+.card__success p span {
+  font-weight: var(--fw-bold);
+}
+
+/* ---=== MEDIA ===--- */
+/* -- TABLET -- */
+@media (min-width: 768px) {
+  .card {
+    padding: 2.5rem;
+    border-radius: 2.25rem;
+  }
+
+  .card__text {
+    margin: 0;
+    gap: 1.5rem;
+  }
+
+  .card__description {
+    gap: 1.5rem;
+  }
+
+  .card__title {
+    font-size: var(--fs-56);
+    font-weight: var(--fw-bold);
+  }
+
+  .card__form-btn {
+    margin-block: 1rem 0;
+  }
+}
+
+/* -- DESKTOP -- */
+@media (min-width: 1440px) {
+  .card {
+    padding: 2rem;
+    flex-direction: row-reverse;
+    gap: 4rem;
+
+    align-items: center;
+  }
+
+  .card__text {
+    max-width: 23.5rem;
+    max-height: 28.125rem;
+    gap: 2rem;
+  }
+
+  .card__description {
+    gap: 2rem;
+  }
+
+  .card__form-btn {
+    margin-top: 1.5rem;
+  }
+
+  .btn:hover,
+  .btn:focus {
+    background: linear-gradient(to right, #ff6a3a, #ff527b);
+    box-shadow:
+      0 16px 32px 0 rgba(255, 97, 85, 0.5),
+      0 16px 32px 0 rgba(255, 98, 87, 0.5);
+  }
+}

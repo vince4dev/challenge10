@@ -18,14 +18,17 @@
     <!-- JAVASCRIPT -->
     <script src="./assets/js/main.js" defer></script>
 
+    <!-- TEMPORY SPACING.JS -->
+    <script src="https://unpkg.com/spacingjs" defer></script>
+
     <title>
       Frontend Mentor | Newsletter sign-up form with success message
     </title>
   </head>
 
   <body>
-    <main>
-      <article>
+    <main class="container">
+      <article class="card">
         <!-- IMAGE -->
         <picture class="card__img">
           <source
@@ -41,37 +44,43 @@
 
         <!-- TEXT -->
         <div class="card__text">
-          <h1>Stay updated!</h1>
-          <p>Join 60,000+ product managers receiving monthly updates on:</p>
-          <ul role="list">
-            <li>
-              <img src="./assets/images/icon-list.svg" alt="" />Product
-              discovery and building what matters
-            </li>
-            <li>
-              <img src="./assets/images/icon-list.svg" alt="" />Measuring to
-              ensure updates are a success
-            </li>
-            <li>
-              <img src="./assets/images/icon-list.svg" alt="" />And much more!
-            </li>
-          </ul>
-        </div>
-
-        <!-- FORMULAIRE -->
-        <form class="card__form">
-          <div>
-            <label for="email">Email address</label>
-            <input
-              type="email"
-              name="email"
-              type="email"
-              placeholder="email@company.com"
-            />
-            <span aria-live="polite" id="email-error"></span>
+          <div class="card__description">
+            <h1 class="card__title">Stay updated!</h1>
+            <p>Join 60,000+ product managers receiving monthly updates on:</p>
+            <ul class="card__list" role="list">
+              <li>
+                <img src="./assets/images/icon-list.svg" alt="" />
+                <p>Product discovery and building what matters</p>
+              </li>
+              <li>
+                <img src="./assets/images/icon-list.svg" alt="" />Measuring to
+                ensure updates are a success
+              </li>
+              <li>
+                <img src="./assets/images/icon-list.svg" alt="" />And much more!
+              </li>
+            </ul>
           </div>
-          <button>Subscribe to monthly newsletter</button>
-        </form>
+
+          <!-- FORMULAIRE -->
+          <div card__form>
+            <form>
+              <div class="card__form-email">
+                <label for="email">Email address</label>
+                <input
+                  type="email"
+                  name="email"
+                  type="email"
+                  placeholder="email@company.com"
+                />
+                <span aria-live="polite" id="email-error"></span>
+              </div>
+              <button class="card__form-btn btn">
+                Subscribe to monthly newsletter
+              </button>
+            </form>
+          </div>
+        </div>
       </article>
 
       <!-- Success message -->
@@ -83,7 +92,7 @@
           <span>ash@loremcompany.com</span>. Please open it and click the button
           inside to confirm your subscription.
         </p>
-        <button>Dismiss message</button>
+        <button class="btn">Dismiss message</button>
       </div>
     </main>
   </body>

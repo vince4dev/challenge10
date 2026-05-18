@@ -203,7 +203,7 @@ form {
 }
 .form-group input:focus-visible {
   outline: none;
-  border: 2px solid var(--clr-neutral-blue-800);
+  border: 3px solid var(--clr-neutral-blue-800);
 }
 .form-group input[type="email"].invalid {
   background-color: var(--clr-primary-red-100);

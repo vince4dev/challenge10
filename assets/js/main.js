@@ -5,16 +5,23 @@ const emailInput = document.getElementById("email");
 const form = document.getElementById("form");
 const errorMessage = document.getElementById("error-message");
 
+// Verify that all elements exist
+if (!closeBtn || !modal || !emailInput || !form || !errorMessage) {
+  throw new Error("Required DOM elements not found. Check your HTML IDs.");
+}
+
 const emailRegex =
   /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z]{2,})+$/;
 
 function setError(message) {
   errorMessage.textContent = message;
   emailInput.classList.add("invalid");
+  emailInput.focus();
 }
 
 function clearError() {
   errorMessage.textContent = "";
+  emailInput.value = "";
   emailInput.classList.remove("invalid");
 }
 
@@ -34,21 +41,19 @@ form.addEventListener("submit", (e) => {
     const message =
       emailValue === "" ? "Email is required" : "Valid email required";
     setError(message);
-    emailInput.focus();
     return;
   }
 
   clearError();
-  emailInput.value = "";
 
   // open the email sending confirmation window
-  modal.setAttribute("aria-hidden", "true");
+  modal.setAttribute("aria-hidden", "false");
   modal.style.display = "flex";
 });
 
 // close the email sending confirmation window
 closeBtn.addEventListener("click", () => {
-  modal.setAttribute("aria-hidden", "false");
+  modal.setAttribute("aria-hidden", "true");
   modal.style.display = "none";
   emailInput.focus();
 });

@@ -18,9 +18,6 @@
     <!-- JAVASCRIPT -->
     <script src="./assets/js/main.js" defer></script>
 
-    <!-- TEMPORY SPACING.JS -->
-    <script src="https://unpkg.com/spacingjs" defer></script>
-
     <title>
       Frontend Mentor | Newsletter sign-up form with success message
     </title>
@@ -65,9 +62,13 @@
           <!-- FORMULAIRE -->
           <form id="form" novalidate>
             <div class="form-group">
-              <div class="label">
+              <div class="label" aria-describedby="error-message">
                 <label for="email">Email address</label>
-                <span id="error-message"></span>
+                <span
+                  class="error-message"
+                  id="error-message"
+                  aria-live="polite"
+                ></span>
               </div>
               <input
                 id="email"
@@ -96,8 +97,8 @@
     >
       <div class="modal__content">
         <img src="./assets/images/icon-success.svg" alt="" />
-        <h1 class="Modal-title">Thanks for subscribing!</h1>
-        <p class="Modal-desc">
+        <h1 id="Modal-title">Thanks for subscribing!</h1>
+        <p id="Modal-desc">
           A confirmation email has been sent to
           <strong>ash@loremcompany.com</strong>. Please open it and click the
           button inside to confirm your subscription.

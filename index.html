@@ -75,7 +75,6 @@
                 type="email"
                 name="email"
                 placeholder="Enter your email address"
-                pattern="[A-Za-z0-9.!#$%&'*+/=?^_`{|}~-]+@[A-Za-z0-9](?:[A-Za-z0-9-]{0,61}[A-Za-z0-9])?(?:\.[A-Za-z]{2,})+"
                 required
               />
             </div>
@@ -100,8 +99,8 @@
         <h1 id="Modal-title">Thanks for subscribing!</h1>
         <p id="Modal-desc">
           A confirmation email has been sent to
-          <strong>ash@loremcompany.com</strong>. Please open it and click the
-          button inside to confirm your subscription.
+          <span id="modal__email">ash@loremcompany.com</span>. Please open it
+          and click the button inside to confirm your subscription.
         </p>
         <button id="close-btn" class="btn">Dismiss message</button>
       </div>

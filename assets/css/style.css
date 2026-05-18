@@ -104,6 +104,10 @@ ol[role="list"] {
 .btn:active {
   transform: scale(0.99);
 }
+.btn:focus-visible {
+  outline: 3px solid black;
+  box-shadow: 6px 10px 6px black;
+}
 
 /* ===============================================================
         BASE
@@ -255,6 +259,9 @@ form {
   font-weight: var(--fw-bold);
   line-height: 1;
 }
+#modal__email {
+  font-weight: var(--fw-bold);
+}
 
 /* ===============================================================
         MEDIA
@@ -306,7 +313,7 @@ form {
   }
 
   .btn:hover,
-  .btn:focus {
+  .btn:focus-visible {
     background: linear-gradient(to right, #ff6a3a, #ff527b);
     box-shadow:
       0 16px 32px 0 rgba(255, 97, 85, 0.5),

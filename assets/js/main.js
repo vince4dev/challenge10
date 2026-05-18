@@ -4,9 +4,17 @@ const modal = document.getElementById("modal");
 const emailInput = document.getElementById("email");
 const form = document.getElementById("form");
 const errorMessage = document.getElementById("error-message");
+const modalEmail = document.getElementById("modal__email");
 
 // Verify that all elements exist
-if (!closeBtn || !modal || !emailInput || !form || !errorMessage) {
+if (
+  !closeBtn ||
+  !modal ||
+  !emailInput ||
+  !form ||
+  !errorMessage ||
+  !modalEmail
+) {
   throw new Error("Required DOM elements not found. Check your HTML IDs.");
 }
 
@@ -21,7 +29,6 @@ function setError(message) {
 
 function clearError() {
   errorMessage.textContent = "";
-  emailInput.value = "";
   emailInput.classList.remove("invalid");
 }
 
@@ -48,12 +55,15 @@ form.addEventListener("submit", (e) => {
 
   // open the email sending confirmation window
   modal.setAttribute("aria-hidden", "false");
+  modalEmail.innerText = emailInput.value;
   modal.style.display = "flex";
+  closeBtn.focus();
 });
 
 // close the email sending confirmation window
 closeBtn.addEventListener("click", () => {
   modal.setAttribute("aria-hidden", "true");
   modal.style.display = "none";
+  emailInput.value = "";
   emailInput.focus();
 });

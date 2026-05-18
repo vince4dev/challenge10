@@ -63,37 +63,47 @@
           </div>
 
           <!-- FORMULAIRE -->
-          <div card__form>
-            <form>
-              <div class="card__form-email">
+          <form id="form" novalidate>
+            <div class="form-group">
+              <div class="label">
                 <label for="email">Email address</label>
-                <input
-                  type="email"
-                  name="email"
-                  type="email"
-                  placeholder="email@company.com"
-                />
-                <span aria-live="polite" id="email-error"></span>
+                <span id="error-message"></span>
               </div>
-              <button class="card__form-btn btn">
-                Subscribe to monthly newsletter
-              </button>
-            </form>
-          </div>
+              <input
+                id="email"
+                type="email"
+                name="email"
+                placeholder="Enter your email address"
+                pattern="[A-Za-z0-9.!#$%&'*+/=?^_`{|}~-]+@[A-Za-z0-9](?:[A-Za-z0-9-]{0,61}[A-Za-z0-9])?(?:\.[A-Za-z]{2,})+"
+                required
+              />
+            </div>
+            <button type="submit" id="submit-btn" class="card__form-btn btn">
+              Subscribe to monthly newsletter
+            </button>
+          </form>
         </div>
       </article>
-
-      <!-- Success message -->
-      <div class="card__success">
-        <img src="./assets/images/icon-success.svg" alt="" />
-        <h1>Thanks for subscribing!</h1>
-        <p>
-          A confirmation email has been sent to
-          <span>ash@loremcompany.com</span>. Please open it and click the button
-          inside to confirm your subscription.
-        </p>
-        <button class="btn">Dismiss message</button>
-      </div>
     </main>
+
+    <!-- Success message -->
+    <div
+      id="modal"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="Modal-title"
+      aria-describedby="Modal-desc"
+    >
+      <div class="modal__content">
+        <img src="./assets/images/icon-success.svg" alt="" />
+        <h1 class="Modal-title">Thanks for subscribing!</h1>
+        <p class="Modal-desc">
+          A confirmation email has been sent to
+          <strong>ash@loremcompany.com</strong>. Please open it and click the
+          button inside to confirm your subscription.
+        </p>
+        <button id="close-btn" class="btn">Dismiss message</button>
+      </div>
+    </div>
   </body>
 </html>

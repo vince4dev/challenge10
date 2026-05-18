@@ -1,11 +1,13 @@
-/* ---=== FONTS ===--- */
+/* ===============================================================
+        FONTS
+=============================================================== */
 /* roboto-regular - latin */
 @font-face {
   font-display: swap;
   font-family: "Roboto";
   font-style: normal;
   font-weight: 400;
-  src: url("./assets/fonts/roboto-v51-latin-regular.woff2") format("woff2");
+  src: url("../fonts/roboto-v51-latin-regular.woff2") format("woff2");
 }
 /* roboto-700 - latin */
 @font-face {
@@ -13,13 +15,16 @@
   font-family: "Roboto";
   font-style: normal;
   font-weight: 700;
-  src: url("./assets/fonts/roboto-v51-latin-700.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+  src: url("../fonts/roboto-v51-latin-700.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
 
-/* ---=== VARIABLES ===--- */
+/* ===============================================================
+        VARIABLES
+=============================================================== */
 :root {
   /* colors */
   --clr-primary-red: hsl(4, 100%, 67%);
+  --clr-primary-red-100: hsl(2, 100%, 95%);
   --clr-neutral-blue-800: hsl(234, 29%, 20%);
   --clr-neutral-blue-700: hsl(235, 18%, 26%);
   --clr-neutral-grey: hsl(0, 0%, 58%);
@@ -36,7 +41,9 @@
   --fw-regular: 400;
 }
 
-/* ---=== RESET ===---*/
+/* ===============================================================
+        RESET
+=============================================================== */
 *,
 ::after,
 ::before {
@@ -81,20 +88,26 @@ ol[role="list"] {
   padding: 0;
 }
 
-/* ---=== COMPONENTS ===--- */
+/* ===============================================================
+        BUTTON
+=============================================================== */
 .btn {
   font-weight: var(--fw-bold);
   line-height: 1.5;
-  padding: 1rem;
+  padding: 1rem 3rem;
   width: 100%;
   color: var(--clr-neutral-white);
   background-color: var(--clr-neutral-blue-800);
-  border: 1px solid var(--clr-neutral-grey);
   border-radius: 0.5rem;
-  margin-block: 1.5rem 2.5rem;
+  transition: background;
+}
+.btn:active {
+  transform: scale(0.99);
 }
 
-/* ---=== BASE ===--- */
+/* ===============================================================
+        BASE
+=============================================================== */
 body {
   background-color: var(--clr-neutral-blue-700);
   font-family: "Roboto", Arial, Helvetica, sans-serif;
@@ -107,10 +120,13 @@ body {
   min-height: 100vh;
 }
 
-/* ---=== MAIN ===--- */
+/* ===============================================================
+        MAIN
+=============================================================== */
 .card {
   background-color: var(--clr-neutral-white);
   max-height: 100%;
+  padding-bottom: 2.5rem;
 
   display: flex;
   flex-direction: column;
@@ -153,38 +169,77 @@ body {
   align-items: flex-start;
 }
 
-/* FORMULAIRE */
-.card__form-email label {
-  display: block;
+/* ---=== FORMULAIRE ===------------------------------------- */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+.form-group {
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.form-group label {
   font-size: var(--fs-12);
   font-weight: var(--fw-bold);
-  margin-bottom: 0.5rem;
 }
-.card__form-email input {
-  display: block;
-  width: 100%;
-  padding: 1rem;
-  border-radius: 0.5rem;
-  border: 1px solid var(--clr-neutral-grey);
-  line-height: 1.5;
+.form-group .label {
+  display: flex;
+  justify-content: space-between;
 }
-
-/* .card__form-btn {
+.form-group .label span {
+  font-size: var(--fs-12);
   font-weight: var(--fw-bold);
-  line-height: 1.5;
-  padding: 1rem;
-  width: 100%;
-  color: var(--clr-neutral-white);
-  background-color: var(--clr-neutral-blue-800);
+  color: var(--clr-primary-red);
+}
+.form-group input {
+  padding: 1rem 1.5rem;
   border: 1px solid var(--clr-neutral-grey);
   border-radius: 0.5rem;
-  margin-block: 1.5rem 2.5rem;
-} */
+  transition: background-color 1s ease;
+}
+.form-group input:focus-visible {
+  outline: none;
+  border: 2px solid var(--clr-neutral-blue-800);
+}
+.form-group input[type="email"].invalid {
+  background-color: var(--clr-primary-red-100);
+  color: var(--clr-primary-red);
+  border-color: var(--clr-primary-red);
 
-/* ---=== SUCCESS MESSAGE ===--- */
-.card__success {
-  /* display: none; */
+  animation: flashShake 0.5s ease-in-out;
+}
+@keyframes flashShake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-4px);
+  }
+  75% {
+    transform: translateX(4px);
+  }
+}
+
+/* ===============================================================
+        MODAL SUCCES MESSAGE
+=============================================================== */
+#modal {
   position: absolute;
+  min-height: 100vh;
+  background-color: var(--clr-neutral-blue-800);
+  inset: 0;
+
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal__content {
   background-color: var(--clr-neutral-white);
   border-radius: 2.25rem;
   width: 31.5rem;
@@ -195,17 +250,16 @@ body {
   gap: 2rem;
 }
 
-.card__success h1 {
+.modal__content h1 {
   font-size: var(--fs-56);
   font-weight: var(--fw-bold);
   line-height: 1;
 }
-.card__success p span {
-  font-weight: var(--fw-bold);
-}
 
-/* ---=== MEDIA ===--- */
-/* -- TABLET -- */
+/* ===============================================================
+        MEDIA
+=============================================================== */
+/* ---=== TABLET ===------------------------------------------- */
 @media (min-width: 768px) {
   .card {
     padding: 2.5rem;
@@ -226,12 +280,12 @@ body {
     font-weight: var(--fw-bold);
   }
 
-  .card__form-btn {
-    margin-block: 1rem 0;
+  form {
+    gap: 1rem;
   }
 }
 
-/* -- DESKTOP -- */
+/* ---=== DESKTOP ===------------------------------------------- */
 @media (min-width: 1440px) {
   .card {
     padding: 2rem;
@@ -251,15 +305,15 @@ body {
     gap: 2rem;
   }
 
-  .card__form-btn {
-    margin-top: 1.5rem;
-  }
-
   .btn:hover,
   .btn:focus {
     background: linear-gradient(to right, #ff6a3a, #ff527b);
     box-shadow:
       0 16px 32px 0 rgba(255, 97, 85, 0.5),
       0 16px 32px 0 rgba(255, 98, 87, 0.5);
+  }
+
+  form {
+    gap: 1.5rem;
   }
 }
